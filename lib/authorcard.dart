@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:prochef/circle_image.dart';
 import 'package:prochef/prochef_theme.dart';
 
-class AuthorCard extends StatelessWidget{
+class AuthorCard extends StatefulWidget{
   final String authorName;
   final String title;
   final ImageProvider? imageProvider;
 
   AuthorCard({super.key, required this.authorName, required this.title, this.imageProvider});
+
+  @override
+  State<AuthorCard> createState() => _AuthorCardState();
+}
+
+class _AuthorCardState extends State<AuthorCard> {
+  bool _isFavoured = false;
 
   @override
   Widget build(BuildContext context){
@@ -21,7 +28,7 @@ class AuthorCard extends StatelessWidget{
           Row(
             children: [
               CircleImage(
-                imageProvider: imageProvider,
+                imageProvider: widget.imageProvider,
                 imageRadius: 28,
               ),
               const SizedBox(width: 8,),
@@ -29,11 +36,11 @@ class AuthorCard extends StatelessWidget{
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    authorName,
+                    widget.authorName,
                     style: ProChefTheme.lightTextTheme.headline2,
                   ),
                   Text(
-                    title,
+                    widget.title,
                     style: ProChefTheme.lightTextTheme.headline3,
                   )
                 ],
@@ -41,12 +48,15 @@ class AuthorCard extends StatelessWidget{
             ],
           ),
           IconButton(
-            icon: Icon(Icons.favorite_border),
+            icon: Icon(
+              _isFavoured ? Icons.favorite : Icons.favorite_border
+            ),
             iconSize: 30,
             color: Colors.grey[400],
             onPressed: (){
-              var snackbar = SnackBar(content: Text('favourite'));
-              ScaffoldMessenger.of(context).showSnackBar(snackbar);
+              setState(() {
+                _isFavoured = !_isFavoured;
+              });
             },
           )
         ],

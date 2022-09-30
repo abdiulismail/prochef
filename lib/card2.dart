@@ -17,8 +17,10 @@ class Card2 extends StatelessWidget {
         ),
         child: Column(
           children: [
-            AuthorCard(authorName: 'mike', title: 'smoothie',imageProvider:
-              AssetImage('assets/author_katz.jpeg'),),
+            AuthorCard(
+              authorName: 'mike', title: 'smoothie',imageProvider:
+              AssetImage('assets/author_katz.jpeg'),
+            ),
             Expanded(
               child: Stack(
                 children: [
