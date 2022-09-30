@@ -1,50 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:prochef/authorcard.dart';
 import 'package:prochef/prochef_theme.dart';
 
 class Card2 extends StatelessWidget {
   Card2({super.key});
 
-  final String category = 'Editors choice';
-  final String title = 'the art of dough';
-  final String description = 'learn to make the perfect bread';
-  final String chef = 'abdullahi';
-
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: const EdgeInsets.all(16),
         constraints: const BoxConstraints.expand(width: 350, height: 650),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/mag2.png'), fit: BoxFit.cover),
+              image: AssetImage('assets/mag5.png'), fit: BoxFit.cover),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
-        child: Stack(
+        child: Column(
           children: [
-            Text(
-              category,
-              style: ProChefTheme.darkTextTheme.bodyText1,
-            ),
-            Positioned(
-                top: 20,
-                child: Text(
-                  title,
-                  style: ProChefTheme.darkTextTheme.headline2,
-                )),
-            Positioned(
-                bottom: 30,
-                right: 0,
-                child: Text(
-                  description,
-                  style: ProChefTheme.darkTextTheme.headline2,
-                )),
-            Positioned(
-              bottom: 10,
-              right: 0,
-              child: Text(
-                chef,
-                style: ProChefTheme.darkTextTheme.bodyText1,
+            AuthorCard(authorName: 'mike', title: 'smoothie',imageProvider:
+              AssetImage('assets/author_katz.jpeg'),),
+            Expanded(
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 16,
+                    right: 16,
+                    child: Text(
+                      'Recipe',
+                      style: ProChefTheme.lightTextTheme.headline1,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 70,
+                    left: 16,
+                    child: RotatedBox(
+                      quarterTurns: 3,
+                      child: Text(
+                        'smoothies',
+                        style: ProChefTheme.lightTextTheme.headline1,
+                      ),
+                    ),
+                  )
+                ],
               ),
             )
           ],

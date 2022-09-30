@@ -13,41 +13,11 @@ class Card3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: const EdgeInsets.all(16),
         constraints: const BoxConstraints.expand(width: 350, height: 650),
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/mag3.png'), fit: BoxFit.cover),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
-        ),
-        child: Stack(
-          children: [
-            Text(
-              category,
-              style: ProChefTheme.darkTextTheme.bodyText1,
-            ),
-            Positioned(
-                top: 20,
-                child: Text(
-                  title,
-                  style: ProChefTheme.darkTextTheme.headline2,
-                )),
-            Positioned(
-                bottom: 30,
-                right: 0,
-                child: Text(
-                  description,
-                  style: ProChefTheme.darkTextTheme.headline2,
-                )),
-            Positioned(
-              bottom: 10,
-              right: 0,
-              child: Text(
-                chef,
-                style: ProChefTheme.darkTextTheme.bodyText1,
-              ),
-            )
-          ],
         ),
       ),
     );
