@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:prochef/authorcard.dart';
+import 'package:prochef/components/authorcard.dart';
 import 'package:prochef/prochef_theme.dart';
 
+import '../models/explore_recipe.dart';
+
 class Card2 extends StatelessWidget {
-  Card2({super.key});
+  final ExploreRecipe recipe;
+
+  const Card2({
+    super.key,
+    required this.recipe,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +19,15 @@ class Card2 extends StatelessWidget {
         constraints: const BoxConstraints.expand(width: 350, height: 650),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/mag5.png'), fit: BoxFit.cover),
+              image: AssetImage('assets/mag2.png'), fit: BoxFit.cover),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Column(
           children: [
             AuthorCard(
-              authorName: 'mike', title: 'smoothie',imageProvider:
-              AssetImage('assets/author_katz.jpeg'),
+              authorName: 'mike',
+              title: 'smoothie',
+              imageProvider: AssetImage('assets/author_katz.jpeg'),
             ),
             Expanded(
               child: Stack(

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:prochef/circle_image.dart';
+import 'package:prochef/components/circle_image.dart';
 import 'package:prochef/prochef_theme.dart';
 
 class AuthorCard extends StatefulWidget{

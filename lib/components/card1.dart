@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:prochef/prochef_theme.dart';
 
+import '../models/explore_recipe.dart';
+
 class Card1 extends StatelessWidget {
-  Card1({super.key});
+  final ExploreRecipe recipe;
+
+  const Card1({
+    super.key,
+    required this.recipe,
+  });
 
   final String category = 'Editors choice';
   final String title = 'the art of dough';

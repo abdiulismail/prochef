@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prochef/card1.dart';
-import 'package:prochef/card2.dart';
-import 'package:prochef/card3.dart';
+import 'package:prochef/screens/explore_screen.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -14,10 +12,10 @@ class HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    //todo replace with card1
-    Card1(),
-    Card2(),
-    Card3()
+    ExploreScreen(),
+    // TODO: Replace with RecipesScreen
+    Container(color: Colors.green),
+    Container(color: Colors.blue),
   ];
 
   void _onItemTapped(int index) {
