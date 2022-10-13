@@ -13,7 +13,7 @@ class ProChef extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myTheme = ProChefTheme.light();
-    //todo apply home widget
+    //apply home widget
 
     return MaterialApp(
       theme: myTheme,

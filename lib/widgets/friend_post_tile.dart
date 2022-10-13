@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prochef/components/circle_image.dart';
 import 'package:prochef/models/models.dart';
+
+import 'circle_image.dart';
 
 class FriendPostTile extends StatelessWidget {
   final Post post;

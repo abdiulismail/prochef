@@ -33,7 +33,7 @@ class HomeState extends State<Home> {
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
-      //todo show selected tab
+      //show selected tab
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,

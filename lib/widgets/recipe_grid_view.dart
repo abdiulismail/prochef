@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prochef/components/components.dart';
 import 'package:prochef/models/models.dart';
+import 'package:prochef/widgets/recipe_thumbnail.dart';
 
 class RecipeGridView extends StatelessWidget {
   final List<SimpleRecipe> recipes;

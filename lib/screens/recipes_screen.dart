@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prochef/api/mock_fooderlich_service.dart';
-import 'package:prochef/components/components.dart';
 import 'package:prochef/models/models.dart';
+
+import '../widgets/recipe_grid_view.dart';
 
 class RecipeScreen extends StatelessWidget {
   final exploreService = MockApiService();

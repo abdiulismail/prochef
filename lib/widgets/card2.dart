@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prochef/components/authorcard.dart';
 import 'package:prochef/prochef_theme.dart';
 
 import '../models/explore_recipe.dart';
+import 'author_card.dart';
 
 class Card2 extends StatelessWidget {
   final ExploreRecipe recipe;
