@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prochef/screens/explore_screen.dart';
+import 'package:prochef/screens/recipes_screen.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -13,8 +14,7 @@ class HomeState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
     ExploreScreen(),
-    // TODO: Replace with RecipesScreen
-    Container(color: Colors.green),
+    RecipeScreen(),
     Container(color: Colors.blue),
   ];
 
