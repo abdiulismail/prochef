@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prochef/models/models.dart';
 import 'package:prochef/screens/explore_screen.dart';
+import 'package:prochef/screens/grocery_screen.dart';
 import 'package:prochef/screens/recipes_screen.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -10,44 +13,44 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  int _selectedIndex = 0;
-
   static List<Widget> pages = <Widget>[
     ExploreScreen(),
     RecipeScreen(),
-    Container(color: Colors.blue),
+    GroceryScreen()
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'ProChef',
-          style: Theme.of(context).textTheme.headline6,
+    return Consumer<TabManager>(builder: (context, tabManager, child) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'ProChef',
+            style: Theme.of(context).textTheme.headline6,
+          ),
         ),
-      ),
-      //show selected tab
-      body: pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Card'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Card2'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Card3'),
-        ],
-      ),
-    );
+        //show selected tab
+        body: IndexedStack(
+          index: tabManager.selectedTab,
+          children: pages,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor:
+              Theme.of(context).textSelectionTheme.selectionColor,
+          currentIndex: tabManager.selectedTab,
+          onTap: (index) {
+            tabManager.goToTab(index);
+          },
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.card_giftcard), label: 'Card'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.card_giftcard), label: 'Card2'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.card_giftcard), label: 'Card3'),
+          ],
+        ),
+      );
+    });
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prochef/home.dart';
+import 'package:prochef/models/models.dart';
 import 'package:prochef/prochef_theme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const ProChef());
@@ -18,7 +20,13 @@ class ProChef extends StatelessWidget {
     return MaterialApp(
       theme: myTheme,
       title: 'ProChef',
-      home: Home(),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => TabManager()),
+          ChangeNotifierProvider(create: (context) => GroceryManager()),
+        ],
+        child: Home(),
+      ),
     );
   }
 }
